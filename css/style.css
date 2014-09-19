@@ -1,0 +1,15 @@
+img {
+	width: 196px;
+	float:left;
+	margin: 5px 10px 0 5px;
+}
+#wrapper {
+	width: 500px;
+	height: 300px;
+}
+div.video-box {
+	margin-bottom: 10px;
+	outline: 1px solid #FF9933;
+	height: 120px;
+	text-indent:10px;
+}
