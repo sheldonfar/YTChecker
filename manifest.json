@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
 
-	"name": "Youtube Checker",
+	"name": "YTChecker",
 	"version": "1.0",
-	"description": "Periodically checks for video updates on the Youtube page",
+	"description": "A simple checker of unwatched YouTube videos",
 
 	"permissions": [
 		"https://www.youtube.com/feed/subscriptions",
@@ -18,5 +18,11 @@
 		"default_title": "Youtube Checker", 
 		"default_icon": "images/icon.png",
 		"default_popup": "popup.html"
+	},
+	
+	"icons": {
+		"16": "images/youtube16.png",
+        "48": "images/youtube48.png",
+        "128": "images/youtube128.png" 	
 	}
 }

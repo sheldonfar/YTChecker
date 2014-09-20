@@ -30,7 +30,8 @@ function checkForNewVideos() {
 					var time = $(this).find('ul.yt-lockup-meta-info li:eq(1)').html();
 					var view_count = $(this).find('ul.yt-lockup-meta-info li:eq(2)').html();
 					var thumbnail_image = $(this).find('span.yt-thumb-default img').attr("data-thumb");
-					$('div#wrapper').append('<div class="video-box"><img src="https:' + thumbnail_image + '" hspace="10"></br><b>Author:</b>' + author + '</br><b>Time added: </b>' + time + '</br><b>View count: </b>' + view_count + '</br></div>');
+					var link_to_video = $(this).find('a.yt-uix-tile-link').attr('href');
+					$('div#wrapper').append('<div class="video-box"><a href="http://www.youtube.com' + link_to_video + '" target="_blank"><img src="https:' + thumbnail_image + '" hspace="10"></a></br><b>Author:</b>' + author + '</br><b>Time added: </b>' + time + '</br><b>View count: </b>' + view_count + '</br></div>');
 				});
 				if (new_videos != 0)
 					chrome.browserAction.setBadgeText({ text: new_videos.toString() });
