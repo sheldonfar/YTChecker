@@ -1,5 +1,5 @@
 checkForNewVideos();
-setInterval(checkForNewVideos, "100000");
+setInterval(checkForNewVideos, "6000");
 
 chrome.browserAction.onClicked.addListener(function () {
 	checkForNewVideos();
