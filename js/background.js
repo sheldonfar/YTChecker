@@ -33,8 +33,15 @@ function checkForNewVideos() {
 					var link_to_video = $(this).find('a.yt-uix-tile-link').attr('href');
 					$('div#wrapper').append('<div class="video-box"><a href="http://www.youtube.com' + link_to_video + '" target="_blank"><img src="https:' + thumbnail_image + '" hspace="10"></a></br><b>Author:</b>' + author + '</br><b>Time added: </b>' + time + '</br><b>View count: </b>' + view_count + '</br></div>');
 				});
-				if (new_videos != 0)
+				if (new_videos != 0) {
+					$('div#wrapper').removeClass("no-video");
+					$('div#wrapper').addClass("has-video");
 					chrome.browserAction.setBadgeText({ text: new_videos.toString() });
+				}
+				else {
+					$('div#wrapper').removeClass("has-video");
+					$('div#wrapper').addClass("no-video").html("No unwatched videos, mate :(");
+				}
 			}
 			else {
 				chrome.browserAction.setIcon({ path: "../images/lock-icon.png" });
