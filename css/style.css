@@ -4,8 +4,7 @@ img {
 	margin: 5px 10px 0 5px;
 }
 .has-video{
-	width: 500px;
-	height: 300px;
+	width: 430px;
 }
 div.video-box {
 	margin-bottom: 10px;
@@ -16,5 +15,4 @@ div.video-box {
 }
 .no-video {
 	width: 70px !important;
-	height: 50px !important;
 }

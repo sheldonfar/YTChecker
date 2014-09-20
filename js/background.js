@@ -14,10 +14,12 @@ function checkForNewVideos() {
 		{	
 			if (xhr.responseText) 
 			{
+				$('div#wrapper').html("");
+			
 				chrome.browserAction.setIcon({ path: "../images/icon.png" });
 				chrome.browserAction.setBadgeText({ text: "" });
 				chrome.browserAction.setBadgeBackgroundColor({ color: "#ff0000" });
-
+				
 				var data = xhr.responseText;
 				var feed_item = $('#browse-items-primary', data);
 				var num_videos = feed_item.children('.feed-item-container').size();
