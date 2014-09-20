@@ -1,5 +1,5 @@
-checkForNewVideos(); // Function that checks if there are any new videos in you subscription center
-setInterval(checkForNewVideos, "60000"); // Every 60 sec
+checkForNewVideos(); // Function that checks if there are any new videos in your subscription center
+setInterval(checkForNewVideos, "300000"); // Every 5 minutes
 
 chrome.browserAction.onClicked.addListener(function () {
 	checkForNewVideos();
