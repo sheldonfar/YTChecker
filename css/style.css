@@ -2,17 +2,32 @@ img {
 	width: 196px;
 	float:left;
 	margin: 5px 10px 0 5px;
+	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    border:1px solid #efefef;
+    border-radius:0 0 120px 120px / 0 0 6px 6px;
 }
+
 .has-video{
-	width: 430px;
+	width: 470px;
+}
+#wrapper {
+	background: #EEEEEE;
 }
 div.video-box {
 	margin-bottom: 10px;
-	border: 1px solid #FF9933;
-	border-radius: 5px;
+	border: 1px solid #ddd;
+	border-bottom: 1px solid transparent;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
 	height: 120px;
-	text-indent:10px;
+	font: 12pt Arial sans-serif;
+	background: #EEEEEE;
+	box-shadow: 10px 10px 5px -5px rgba(0,0,0,.3);
 }
 .no-video {
-	width: 70px !important;
+	width: 150px !important;
+	background: #fff !important;
 }
+ a {
+	color: #4682B4;
+ }

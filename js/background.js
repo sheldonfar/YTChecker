@@ -30,12 +30,13 @@ function checkForNewVideos() {
 				$('.feed-item-container', data).each(function(){
 					if($('.watched-badge', this).length) return true; // If video is watched we don't need it!
 					var author = $(this).find('.branded-page-module-title-text').html(); // Author of the video
+					var video_title = $(this).find('a.yt-uix-tile-link').attr('title');
 					var time = $(this).find('ul.yt-lockup-meta-info li:eq(1)').html(); // Time when it was added to YT
 					var view_count = $(this).find('ul.yt-lockup-meta-info li:eq(2)').html(); // Number of views by this moment
 					var thumbnail_image = $(this).find('span.yt-thumb-default img').attr("data-thumb"); // Thumbnail of the video
 					var link_to_video = $(this).find('a.yt-uix-tile-link').attr('href'); // URL link to the video
 					/* COLLECT THEM ALL into wrapper*/
-					$('div#wrapper').append('<div class="video-box"><a href="http://www.youtube.com' + link_to_video + '" target="_blank"><img src="https:' + thumbnail_image + '" hspace="10"></a></br><b>Author:</b>' + author + '</br><b>Time added: </b>' + time + '</br><b>View count: </b>' + view_count + '</br></div>');
+					$('div#wrapper').append('<div class="video-box"><a href="http://www.youtube.com' + link_to_video + '" target="_blank"><img src="https:' + thumbnail_image + '" hspace="10"></a><a href="http://www.youtube.com' + link_to_video + '" target="_blank">' + video_title + '</a></br><b>Author:</b>' + author + '</br><b>Time added: </b>' + time + '</br><b>View count: </b>' + view_count + '</br></div>');
 				});
 				/* If there are unwatched videos in feed */
 				if (new_videos != 0) {
