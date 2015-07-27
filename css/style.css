@@ -1,5 +1,6 @@
 img {
 	width: 196px;
+	max-height: 120px;
 	float:left;
 	margin: 5px 10px 0 5px;
 	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;

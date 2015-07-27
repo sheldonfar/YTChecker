@@ -22,21 +22,25 @@ function checkForNewVideos() {
 				
 				var data = xhr.responseText; // Copying responseText to a variable
 				var feed_item = $('#browse-items-primary', data);
-				var num_videos = feed_item.children('.feed-item-container').size(); // Getting the amount of videos on page
+				var num_videos = feed_item.find('.item-section').size(); // Getting the amount of videos on page
 				var viewed_videos =  $('.feed-item-container .watched-badge', data).size(); // Getting the amount of WATCHED videos
+				//alert("Viewed:" + viewed_videos + ", num_videos = " + num_videos);
 				var new_videos = num_videos - viewed_videos; // Very hard math skills to calculate amount of unwatched videos
 				
 				/* Now we will get all the info from unwatched videos */
 				$('.feed-item-container', data).each(function(){
 					if($('.watched-badge', this).length) return true; // If video is watched we don't need it!
-					var author = $(this).find('.branded-page-module-title-text').html(); // Author of the video
+					var author = $(this).find('.yt-lockup-byline a').html(); // Author of the video
 					var video_title = $(this).find('a.yt-uix-tile-link').attr('title');
-					var time = $(this).find('ul.yt-lockup-meta-info li:eq(1)').html(); // Time when it was added to YT
-					var view_count = $(this).find('ul.yt-lockup-meta-info li:eq(2)').html(); // Number of views by this moment
-					var thumbnail_image = $(this).find('span.yt-thumb-default img').attr("data-thumb"); // Thumbnail of the video
+					var time = $(this).find('ul.yt-lockup-meta-info li:eq(0)').html(); // Time when it was added to YT
+					var view_count = $(this).find('ul.yt-lockup-meta-info li:eq(1)').html(); // Number of views by this moment
+					var video_length = $(this).find('.video-time').html();
+					var expanded_shelf = $(this).find('.expanded-shelf');
+					var thumbnail_image = expanded_shelf.find('.video-thumb img[src*=".webp"]').attr("src");
+					if (!thumbnail_image) thumbnail_image = expanded_shelf.find('.video-thumb img').attr("data-thumb");// Thumbnail of the video
 					var link_to_video = $(this).find('a.yt-uix-tile-link').attr('href'); // URL link to the video
 					/* COLLECT THEM ALL into wrapper*/
-					$('div#wrapper').append('<div class="video-box"><a href="http://www.youtube.com' + link_to_video + '" target="_blank"><img src="https:' + thumbnail_image + '" hspace="10"></a><a href="http://www.youtube.com' + link_to_video + '" target="_blank">' + video_title + '</a></br><b>Author:</b>' + author + '</br><b>Time added: </b>' + time + '</br><b>View count: </b>' + view_count + '</br></div>');
+					$('div#wrapper').append('<div class="video-box"><a href="http://www.youtube.com' + link_to_video + '" target="_blank"><img src="https://' + thumbnail_image + '" hspace="10"></a><a href="http://www.youtube.com' + link_to_video + '" target="_blank">' + video_title + '</a></br><b>Author: </b>' + author + '</br><b>Time added: </b>' + time + '</br><b>View count: </b>' + view_count + '</br><b>Length: </b>' + video_length + '</div>');
 				});
 				/* If there are unwatched videos in feed */
 				if (new_videos != 0) {
